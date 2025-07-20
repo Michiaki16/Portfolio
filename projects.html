@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Projects | Miko Andre San Miguel</title>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="img/logo.png" alt="Logo" style="width: 100px; border-radius: 50%; margin-left: 100px;" /> 
+      
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="skills.html">Skills</a>
+      <a href="education.html">Education</a>
+      <a href="experience.html">Experience</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+     <section class="projects-section">
+    <h1 class="section-title">🛠️ Projects I've Built</h1>
+
+    <div class="project-card">
+      <img src="img/todo1.jpg" alt="To Do List App" class="project-img" onclick="openModal('todo')">
+      <h2>📝 Full Stack Web App – To Do List</h2>
+      <p>
+        A Django-powered task manager that enables users to add, update, and delete tasks securely. Designed with clear separation of concerns, it features user authentication and a responsive interface for smooth UX.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <img src="img/pruleadgenmailer.jpg" alt="PruLeadGenMailer" class="project-img" onclick="openModal('pru')">
+      <h2>📧 Desktop App – PruLeadGenMailer</h2>
+      <p>
+        A lead generation tool that scrapes businesses from Google Maps and automates email outreach using Gmail API. It supports multi-account authentication, template saving, and scalable marketing communication.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <img src="img/prolock.jpg" alt="Prolock Smart Doorlock" class="project-img" onclick="openModal('prolock')">
+      <h2>🔐 IoT System – Prolock Smart Doorlock</h2>
+      <p>
+        Our capstone project: an IoT smart doorlock using Adafruit fingerprint sensor and NFC reader to manage instructor and student attendance. It offers secure access control integrated with hardware-level identity scanning.
+      </p>
+    </div>
+  </section>
+
+  <!-- Modal Gallery -->
+  <div id="imgModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" class="modal-content" />
+    <button class="modal-nav prev" onclick="showPrev()">&#10094;</button>
+    <button class="modal-nav next" onclick="showNext()">&#10095;</button>
+  </div>
+
+    <script>
+    const galleries = {
+      todo: ["img/todo1.jpg", "img/todo2.jpg"],
+      pru: ["img/pruleadgenmailer.jpg"],
+      prolock: ["img/Prolock.jpg", "img/Prolock2.jpg"]
+    };
+
+    let currentGallery = [];
+    let currentIndex = 0;
+
+    function openModal(projectKey) {
+      currentGallery = galleries[projectKey];
+      currentIndex = 0;
+      document.getElementById("modalImage").src = currentGallery[currentIndex];
+      document.getElementById("imgModal").style.display = "block";
+      toggleNavButtons();
+    }
+
+    function closeModal() {
+      document.getElementById("imgModal").style.display = "none";
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % currentGallery.length;
+      document.getElementById("modalImage").src = currentGallery[currentIndex];
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+      document.getElementById("modalImage").src = currentGallery[currentIndex];
+    }
+
+    function toggleNavButtons() {
+      document.querySelector('.modal-nav.prev').style.display = currentGallery.length > 1 ? 'block' : 'none';
+      document.querySelector('.modal-nav.next').style.display = currentGallery.length > 1 ? 'block' : 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("imgModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+  </script>
+  
+</body>
+
+</html>
