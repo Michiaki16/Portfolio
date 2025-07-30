@@ -32,28 +32,93 @@
      <section class="projects-section">
     <h1 class="section-title">🛠️ Projects I've Built</h1>
 
-    <div class="project-card">
-      <img src="img/todo1.jpg" alt="To Do List App" class="project-img" onclick="openModal('todo')">
-      <h2>📝 Full Stack Web App – To Do List</h2>
-      <p>
-        A Django-powered task manager that enables users to add, update, and delete tasks securely. Designed with clear separation of concerns, it features user authentication and a responsive interface for smooth UX.
-      </p>
-    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="img/todo1.jpg" alt="To Do List App" class="project-img" onclick="openModal('todo')">
+          <div class="project-overlay">
+            <i class="fa-solid fa-eye"></i>
+            <span>View Gallery</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-icon">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <h3>Full Stack Web App – To Do List</h3>
+          <p>A Django-powered task manager that enables users to add, update, and delete tasks securely. Designed with clear separation of concerns, it features user authentication and a responsive interface for smooth UX.</p>
+          <ul class="project-features">
+            <li>Django Framework</li>
+            <li>User Authentication</li>
+            <li>CRUD Operations</li>
+            <li>Responsive Design</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django</span>
+            <span class="tech-tag">HTML/CSS</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+        </div>
+      </div>
 
-    <div class="project-card">
-      <img src="img/pruleadgenmailer.jpg" alt="PruLeadGenMailer" class="project-img" onclick="openModal('pru')">
-      <h2>📧 Desktop App – PruLeadGenMailer</h2>
-      <p>
-        A lead generation tool that scrapes businesses from Google Maps and automates email outreach using Gmail API. It supports multi-account authentication, template saving, and scalable marketing communication.
-      </p>
-    </div>
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="img/pruleadgenmailer.jpg" alt="PruLeadGenMailer" class="project-img" onclick="openModal('pru')">
+          <div class="project-overlay">
+            <i class="fa-solid fa-eye"></i>
+            <span>View Details</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-icon">
+            <i class="fa-solid fa-envelope-open-text"></i>
+          </div>
+          <h3>Desktop App – PruLeadGenMailer</h3>
+          <p>A lead generation tool that scrapes businesses from Google Maps and automates email outreach using Gmail API. It supports multi-account authentication, template saving, and scalable marketing communication.</p>
+          <ul class="project-features">
+            <li>Google Maps Scraping</li>
+            <li>Gmail API Integration</li>
+            <li>Multi-account Support</li>
+            <li>Template Management</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Gmail API</span>
+            <span class="tech-tag">Web Scraping</span>
+            <span class="tech-tag">Tkinter</span>
+          </div>
+        </div>
+      </div>
 
-    <div class="project-card">
-      <img src="img/prolock.jpg" alt="Prolock Smart Doorlock" class="project-img" onclick="openModal('prolock')">
-      <h2>🔐 IoT System – Prolock Smart Doorlock</h2>
-      <p>
-        Our capstone project: an IoT smart doorlock using Adafruit fingerprint sensor and NFC reader to manage instructor and student attendance. It offers secure access control integrated with hardware-level identity scanning.
-      </p>
+      <div class="project-card">
+        <div class="project-image-container">
+          <img src="img/prolock.jpg" alt="Prolock Smart Doorlock" class="project-img" onclick="openModal('prolock')">
+          <div class="project-overlay">
+            <i class="fa-solid fa-eye"></i>
+            <span>View Gallery</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-icon">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h3>IoT System – Prolock Smart Doorlock</h3>
+          <p>Our capstone project: an IoT smart doorlock using Adafruit fingerprint sensor and NFC reader to manage instructor and student attendance. It offers secure access control integrated with hardware-level identity scanning.</p>
+          <ul class="project-features">
+            <li>Fingerprint Recognition</li>
+            <li>NFC Integration</li>
+            <li>Attendance Tracking</li>
+            <li>IoT Connectivity</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">Arduino</span>
+            <span class="tech-tag">IoT</span>
+            <span class="tech-tag">Sensors</span>
+            <span class="tech-tag">C++</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

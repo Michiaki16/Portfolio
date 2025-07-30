@@ -328,7 +328,7 @@ span {
     font-size: 3.5rem;
   }
 
-  .services-grid {
+  .services-grid, .projects-grid, .contact-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
@@ -337,7 +337,11 @@ span {
     padding: 8rem 5% 5rem;
   }
 
-  .contact-details, .contact-form {
+  .contact-info-card, .contact-form-card {
+    margin: 0 1rem;
+  }
+
+  .project-card {
     margin: 0 1rem;
   }
 }
@@ -364,8 +368,26 @@ span {
     font-size: 2.8rem;
   }
 
-  .service-card {
+  .service-card, .project-card, .contact-info-card, .contact-form-card {
     padding: 2rem 1.5rem;
+  }
+
+  .project-content, .contact-info-card, .contact-form-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .projects-grid, .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card h3, .contact-info-card h3, .contact-form-card h3 {
+    font-size: 2rem;
+  }
+
+  .tech-tag {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.8rem;
   }
 }
 .skills-section {
@@ -749,21 +771,284 @@ span {
   box-shadow: 0 10px 25px rgba(30, 144, 255, 0.4);
 }
 
-/* Contact Form */
-.contact-form {
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.project-card {
   background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-  padding: 3rem;
   border-radius: 1.5rem;
   border-left: 4px solid #1e90ff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  margin-top: 3rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.contact-form h2 {
-  font-size: 2.8rem;
-  color: #1e90ff;
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(30, 144, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover::before {
+  transform: translateX(100%);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(30, 144, 255, 0.2);
+}
+
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 144, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: white;
+  font-weight: 600;
+}
+
+.project-image-container:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-image-container:hover .project-img {
+  transform: scale(1.1);
+}
+
+.project-overlay i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.project-content {
+  padding: 2.5rem;
+}
+
+.project-icon {
+  width: 6rem;
+  height: 6rem;
+  background: linear-gradient(145deg, #1e90ff, #0066cc);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+}
+
+.project-icon i {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.project-card h3 {
+  font-size: 2.2rem;
+  color: #1e90ff;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.project-card p {
+  font-size: 1.5rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.project-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.project-features li {
+  font-size: 1.4rem;
+  color: #bbb;
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.project-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #1e90ff;
+  font-weight: bold;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.tech-tag {
+  background: rgba(30, 144, 255, 0.2);
+  color: #1e90ff;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: 1px solid rgba(30, 144, 255, 0.3);
+}
+
+/* Contact Grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.contact-info-card,
+.contact-form-card {
+  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+  padding: 3rem 2.5rem;
+  border-radius: 1.5rem;
+  border-left: 4px solid #1e90ff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info-card::before,
+.contact-form-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(30, 144, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.contact-info-card:hover::before,
+.contact-form-card:hover::before {
+  transform: translateX(100%);
+}
+
+.contact-info-card:hover,
+.contact-form-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(30, 144, 255, 0.2);
+}
+
+.contact-icon {
+  width: 6rem;
+  height: 6rem;
+  background: linear-gradient(145deg, #1e90ff, #0066cc);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+}
+
+.contact-icon i {
+  font-size: 2.5rem;
+  color: white;
+}
+
+.contact-info-card h3,
+.contact-form-card h3 {
+  font-size: 2.4rem;
+  color: #1e90ff;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.contact-info-card p {
+  font-size: 1.6rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+.contact-item i {
+  color: #1e90ff;
+  margin-right: 1.5rem;
+  width: 2rem;
   text-align: center;
+}
+
+.contact-item a {
+  color: #1e90ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #63b3ff;
+}
+
+.hire-btn {
+  margin-top: 2rem;
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, #1e90ff, #0066cc);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+}
+
+.hire-btn:hover {
+  background: linear-gradient(145deg, #0066cc, #1e90ff);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(30, 144, 255, 0.4);
+}
+
+/* Contact Form */
+.contact-form-card h3 {
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
 .form-group {
