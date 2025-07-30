@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,7 @@
     <div class="logo-container">
       <img src="img/logo.png" alt="Logo" style="width: 100px; border-radius: 50%; margin-left: 100px;" /> 
     </div>
-    <nav>
+    <nav id="navbar">
       <a href="index.html">Home</a>
       <a href="skills.html">Skills</a>
       <a href="education.html">Education</a>
@@ -23,11 +22,14 @@
       <a href="services.html" class="active">Services</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button id="menu-toggle" class="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </header>
 
   <section class="services-section">
     <h1 class="section-title">💼 My Services</h1>
-    
+
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">
@@ -48,40 +50,26 @@
           <i class="fa-solid fa-headset"></i>
         </div>
         <h3>Technical Support</h3>
-        <p>Professional technical support services with experience from Bell Canada and McAfee. Expert troubleshooting and customer service.</p>
+        <p>Professional technical support services with experience from major telecommunications companies like Bell Canada.</p>
         <ul class="service-features">
-          <li>System Troubleshooting</li>
-          <li>Software Installation</li>
-          <li>Network Configuration</li>
-          <li>User Training</li>
+          <li>Customer Service Excellence</li>
+          <li>Problem Solving</li>
+          <li>Technical Troubleshooting</li>
+          <li>Multi-platform Support</li>
         </ul>
       </div>
 
       <div class="service-card">
         <div class="service-icon">
-          <i class="fa-solid fa-desktop"></i>
+          <i class="fa-solid fa-mobile-alt"></i>
         </div>
-        <h3>Desktop Applications</h3>
-        <p>Custom desktop application development using modern frameworks. From automation tools to business applications.</p>
+        <h3>Mobile App Development</h3>
+        <p>Cross-platform mobile applications with modern frameworks and responsive design principles.</p>
         <ul class="service-features">
-          <li>Automation Tools</li>
-          <li>Business Applications</li>
-          <li>Data Processing</li>
-          <li>API Integration</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fa-solid fa-microchip"></i>
-        </div>
-        <h3>IoT Solutions</h3>
-        <p>Internet of Things development including smart home systems, security solutions, and hardware integration.</p>
-        <ul class="service-features">
-          <li>Smart Security Systems</li>
-          <li>Hardware Integration</li>
-          <li>Sensor Networks</li>
-          <li>Mobile App Control</li>
+          <li>React Native Development</li>
+          <li>iOS & Android Compatible</li>
+          <li>UI/UX Design</li>
+          <li>App Store Deployment</li>
         </ul>
       </div>
 
@@ -90,12 +78,26 @@
           <i class="fa-solid fa-database"></i>
         </div>
         <h3>Database Management</h3>
-        <p>Database design, optimization, and management services using SQL, MySQL, and other database technologies.</p>
+        <p>Efficient database design, optimization, and management using SQL and modern database technologies.</p>
         <ul class="service-features">
           <li>Database Design</li>
-          <li>Performance Tuning</li>
+          <li>SQL Optimization</li>
           <li>Data Migration</li>
-          <li>Backup Solutions</li>
+          <li>Performance Tuning</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-cogs"></i>
+        </div>
+        <h3>IT Consulting</h3>
+        <p>Strategic IT consulting to help businesses leverage technology for growth and efficiency.</p>
+        <ul class="service-features">
+          <li>Technology Assessment</li>
+          <li>Digital Transformation</li>
+          <li>System Integration</li>
+          <li>Process Automation</li>
         </ul>
       </div>
 
@@ -103,22 +105,42 @@
         <div class="service-icon">
           <i class="fa-solid fa-chart-line"></i>
         </div>
-        <h3>Lead Generation Tools</h3>
-        <p>Custom lead generation and marketing automation tools to help businesses grow their customer base effectively.</p>
+        <h3>Business Automation</h3>
+        <p>Custom automation solutions to streamline business processes and increase productivity.</p>
         <ul class="service-features">
-          <li>Email Automation</li>
-          <li>Data Scraping</li>
-          <li>CRM Integration</li>
-          <li>Analytics Dashboard</li>
+          <li>Workflow Automation</li>
+          <li>Data Processing</li>
+          <li>Email Marketing</li>
+          <li>Lead Generation Tools</li>
         </ul>
       </div>
     </div>
 
     <div class="cta-section">
-      <h2>Ready to work together?</h2>
-      <p>Let's discuss your project and bring your ideas to life</p>
+      <h2>Ready to Start Your Project?</h2>
+      <p>Let's work together to bring your ideas to life with cutting-edge technology and professional expertise.</p>
       <a href="contact.html" class="btn cta-btn">Get In Touch</a>
     </div>
   </section>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navbar.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navbar.classList.remove('active');
+      });
+    });
+  </script>
+
 </body>
 </html>

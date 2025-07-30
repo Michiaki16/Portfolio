@@ -11,10 +11,9 @@
 <body>
   <header>
     <div class="logo-container">
-      <img src="img/logo.png" alt="Logo" style="width: 100px; border-radius: 50%; margin-left: 100px;" /> 
-      
+      <img src="img/logo.png" alt="Logo" style="width: 100px; border-radius: 50%;" /> 
     </div>
-    <nav>
+    <nav id="navbar">
       <a href="index.html">Home</a>
       <a href="skills.html" class="active">Skills</a>
       <a href="education.html">Education</a>
@@ -23,6 +22,11 @@
       <a href="services.html">Services</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
 
   <section class="skills-section">
@@ -59,6 +63,24 @@
     </div>
   </section>
 
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navbar.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navbar.classList.remove('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
