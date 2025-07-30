@@ -813,14 +813,16 @@ span {
 .project-image-container {
   position: relative;
   overflow: hidden;
+  border-radius: 1rem 1rem 0 0;
+  cursor: pointer;
 }
 
 .project-img {
   width: 100%;
   height: 250px;
   object-fit: cover;
-  cursor: pointer;
   transition: transform 0.3s ease;
+  display: block;
 }
 
 .project-overlay {
@@ -829,7 +831,7 @@ span {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(30, 144, 255, 0.9);
+  background: rgba(30, 144, 255, 0.8);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -838,6 +840,7 @@ span {
   transition: opacity 0.3s ease;
   color: white;
   font-weight: 600;
+  pointer-events: none;
 }
 
 .project-image-container:hover .project-overlay {
@@ -845,7 +848,7 @@ span {
 }
 
 .project-image-container:hover .project-img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .project-overlay i {
@@ -1151,47 +1154,15 @@ span {
 }
 
 .service-card {
-  animation: fadeInUp 0.6s ease forwards;
-  opacity: 0;
+  opacity: 1;
 }
 
 .edu-card, .exp-card, .project-card {
-  animation: slideInLeft 0.6s ease forwards;
-  opacity: 0;
+  opacity: 1;
 }
 
 .skills-group {
-  animation: slideInRight 0.6s ease forwards;
-  opacity: 0;
-}
-
-.service-card:nth-child(1) { animation-delay: 0.1s; }
-.service-card:nth-child(2) { animation-delay: 0.2s; }
-.service-card:nth-child(3) { animation-delay: 0.3s; }
-.service-card:nth-child(4) { animation-delay: 0.4s; }
-.service-card:nth-child(5) { animation-delay: 0.5s; }
-.service-card:nth-child(6) { animation-delay: 0.6s; }
-
-.edu-card:nth-child(2) { animation-delay: 0.1s; }
-.edu-card:nth-child(3) { animation-delay: 0.2s; }
-.edu-card:nth-child(4) { animation-delay: 0.3s; }
-.edu-card:nth-child(5) { animation-delay: 0.4s; }
-
-.exp-card:nth-child(2) { animation-delay: 0.1s; }
-.exp-card:nth-child(3) { animation-delay: 0.2s; }
-.exp-card:nth-child(4) { animation-delay: 0.3s; }
-
-.project-card:nth-child(2) { animation-delay: 0.1s; }
-.project-card:nth-child(3) { animation-delay: 0.2s; }
-.project-card:nth-child(4) { animation-delay: 0.3s; }
-
-.skills-group:nth-child(2) { animation-delay: 0.1s; }
-.skills-group:nth-child(3) { animation-delay: 0.2s; }
-.skills-group:nth-child(4) { animation-delay: 0.3s; }
-
-/* Scroll reveal animation */
-.reveal {
-  animation: fadeInUp 0.6s ease forwards;
+  opacity: 1;
 }
 
 /* Enhanced hover effects */
@@ -1253,57 +1224,75 @@ span {
 .modal {
   display: none;
   position: fixed;
-  z-index: 200;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
   display: block;
   margin: auto;
-  max-width: 80%;
-  max-height: 80%;
-  margin-top: 5rem;
+  max-width: 90%;
+  max-height: 85%;
+  margin-top: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0 20px #1e90ff;
+  box-shadow: 0 0 30px rgba(30, 144, 255, 0.5);
+  object-fit: contain;
 }
 
 .close {
   position: absolute;
-  top: 2rem;
-  right: 4rem;
+  top: 1rem;
+  right: 2rem;
   color: #fff;
   font-size: 4rem;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .close:hover {
   color: #1e90ff;
+  background: rgba(30, 144, 255, 0.2);
+  transform: scale(1.1);
 }
 
 .modal-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #fff;
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #1e90ff;
+  padding: 1.5rem;
   cursor: pointer;
-  z-index: 201;
+  z-index: 1001;
   border-radius: 50%;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-nav:hover {
   background: #1e90ff;
   color: black;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .modal-nav.prev {
@@ -1312,4 +1301,36 @@ span {
 
 .modal-nav.next {
   right: 2rem;
+}
+
+/* Modal responsive */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 95%;
+    max-height: 80%;
+    margin-top: 5rem;
+  }
+  
+  .close {
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 3rem;
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .modal-nav {
+    font-size: 2rem;
+    width: 5rem;
+    height: 5rem;
+    padding: 1rem;
+  }
+  
+  .modal-nav.prev {
+    left: 1rem;
+  }
+  
+  .modal-nav.next {
+    right: 1rem;
+  }
 }

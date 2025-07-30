@@ -145,11 +145,21 @@
       currentIndex = 0;
       document.getElementById("modalImage").src = currentGallery[currentIndex];
       document.getElementById("imgModal").style.display = "block";
+      document.body.style.overflow = "hidden"; // Prevent background scrolling
       toggleNavButtons();
+      
+      // Add fade-in effect
+      setTimeout(() => {
+        document.getElementById("imgModal").style.opacity = "1";
+      }, 10);
     }
 
     function closeModal() {
-      document.getElementById("imgModal").style.display = "none";
+      document.getElementById("imgModal").style.opacity = "0";
+      setTimeout(() => {
+        document.getElementById("imgModal").style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+      }, 300);
     }
 
     function showNext() {
@@ -163,16 +173,40 @@
     }
 
     function toggleNavButtons() {
-      document.querySelector('.modal-nav.prev').style.display = currentGallery.length > 1 ? 'block' : 'none';
-      document.querySelector('.modal-nav.next').style.display = currentGallery.length > 1 ? 'block' : 'none';
+      const prevBtn = document.querySelector('.modal-nav.prev');
+      const nextBtn = document.querySelector('.modal-nav.next');
+      
+      if (currentGallery.length > 1) {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+      } else {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      }
     }
 
+    // Close modal when clicking outside the image
     window.onclick = function(event) {
       const modal = document.getElementById("imgModal");
-      if (event.target === modal) {
+      const modalImage = document.getElementById("modalImage");
+      if (event.target === modal && event.target !== modalImage) {
         closeModal();
       }
     };
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(event) {
+      const modal = document.getElementById("imgModal");
+      if (modal.style.display === "block") {
+        if (event.key === "Escape") {
+          closeModal();
+        } else if (event.key === "ArrowLeft") {
+          showPrev();
+        } else if (event.key === "ArrowRight") {
+          showNext();
+        }
+      }
+    });
 
     // Mobile menu toggle
     const menuToggle = document.getElementById('menu-toggle');
@@ -190,6 +224,10 @@
         navbar.classList.remove('active');
       });
     });
+
+    // Initialize modal opacity
+    document.getElementById("imgModal").style.opacity = "0";
+    document.getElementById("imgModal").style.transition = "opacity 0.3s ease";
   </script>
   
 </body>
