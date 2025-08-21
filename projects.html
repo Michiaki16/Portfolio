@@ -33,6 +33,43 @@
     <h1 class="section-title">🛠️ Projects I've Built</h1>
 
     <div class="projects-grid">
+      <div class="project-card featured-project">
+        <div class="featured-badge">
+          <i class="fa-solid fa-star"></i>
+          <span>Featured Project</span>
+        </div>
+        <div class="project-image-container">
+          <img src="img/PLjobs_LandingPage.jpg" alt="PiliJobConnect" class="project-img" onclick="openModal('pilijobconnect')">
+          <div class="project-overlay">
+            <i class="fa-solid fa-eye"></i>
+            <span>View Gallery</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-icon">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <h3>Full Stack Web App – PiliJobConnect</h3>
+          <p>A comprehensive job portal platform connecting job seekers with employers in the Philippines. Features admin dashboard, employer management, job seeker profiles, and real-time SMS notifications using TextBee API. Built with modern full-stack technologies for optimal performance and user experience.</p>
+          <ul class="project-features">
+            <li>Job Portal Platform</li>
+            <li>Admin Dashboard</li>
+            <li>SMS Notifications (TextBee)</li>
+            <li>User Management System</li>
+            <li>Real-time Updates</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express.js</span>
+            <span class="tech-tag">SQLite 3</span>
+            <span class="tech-tag">TextBee API</span>
+          </div>
+        </div>
+      </div>
+
       <div class="project-card">
         <div class="project-image-container">
           <img src="img/todo1.jpg" alt="To Do List App" class="project-img" onclick="openModal('todo')">
@@ -132,6 +169,15 @@
 
     <script>
     const galleries = {
+      pilijobconnect: [
+        "img/PLjobs_LandingPage.jpg",
+        "img/PLjobs_JobSeekerPage.jpg",
+        "img/PLjobs_EmployerDashboardPage.jpg",
+        "img/PLjobs_AdminAnalytics.jpg",
+        "img/PLjobs_AdminJobs.jpg",
+        "img/PLjobs_AdminUsers.jpg",
+        "img/PLjobs_AdminApplications.jpg"
+      ],
       todo: ["img/todo1.jpg", "img/todo2.jpg"],
       pru: ["img/pruleadgenmailer.jpg"],
       prolock: ["img/Prolock.jpg", "img/Prolock2.jpg"]
